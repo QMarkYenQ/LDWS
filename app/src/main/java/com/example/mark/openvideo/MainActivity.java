@@ -39,11 +39,6 @@ public class MainActivity extends AppCompatActivity implements CvCameraViewListe
         @Override
         public void onManagerConnected(int status) {
 
-
-
-
-
-
             switch (status) {
                 case LoaderCallbackInterface.SUCCESS:
                 {
