@@ -1,37 +1,31 @@
 package com.example.mark.openvideo;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
-import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
-import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
 
-import android.util.Log;
-import android.view.SurfaceView;
-import android.view.Window;
-import android.view.WindowManager;
-import org.opencv.android.*;
-import org.opencv.core.*;
-import org.opencv.imgproc.*;
-import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
-import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
-
+import android.support.v7.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.SurfaceView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SurfaceView;
+import android.view.WindowManager;
+
 public class MainActivity extends AppCompatActivity implements CvCameraViewListener2 {
 
     //A Tag to filter the log messages
-    private static final String TAG =
-            ":Activity";
+    private static final String TAG = ":Activity";
     //A class used to implement the interaction between OpenCV and the
 //device camera.
+
+    myNDK jnifunc = new myNDK();
+
     private CameraBridgeViewBase mOpenCvCameraView =null;
 
 
@@ -118,8 +112,11 @@ public class MainActivity extends AppCompatActivity implements CvCameraViewListe
     }
 
     @Override
-    public Mat onCameraFrame(CvCameraViewFrame frame) {
-
-        return frame.gray();
+    public Mat onCameraFrame(CvCameraViewFrame frame)
+    {
+        Mat im =  new Mat();
+        im = frame.rgba();
+        jnifunc.imgProcess( 0, im.getNativeObjAddr() );
+        return im;
     }
 }

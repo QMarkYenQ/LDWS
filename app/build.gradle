@@ -10,6 +10,11 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        ndk {
+            moduleName "myJNI"
+        }
+
+
     }
     buildTypes {
         release {
@@ -18,8 +23,10 @@ android {
         }
     }
     sourceSets.main {
-        jniLibs.srcDir "src/main/jniLibs"
-        jni.srcDirs = []
+
+        jniLibs.srcDirs = ["src/main/jniLibs ","src/main/jniLibs-cv" ]
+
+        jni.srcDirs = []           //disable automatic ndk-build call
     }
 
 }
