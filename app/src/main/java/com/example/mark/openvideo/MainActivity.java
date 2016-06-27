@@ -53,9 +53,17 @@ public class MainActivity extends AppCompatActivity implements CvCameraViewListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.cameraview);
+       mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
+        mOpenCvCameraView.setCvCameraViewListener(this);
+/*
+        Log.i(TAG, "called onCreate");
+        super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        setContentView(R.layout.activity_main);
+        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.cameraview);
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
-
+*/
     //    requestWindowFeature(Window.FEATURE_NO_TITLE);
      //   getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
       //  setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -98,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements CvCameraViewListe
         // Release the camera.
         if (mOpenCvCameraView != null) {
             mOpenCvCameraView.disableView();
-            mOpenCvCameraView = null;
         }
     }
     @Override
@@ -118,5 +125,11 @@ public class MainActivity extends AppCompatActivity implements CvCameraViewListe
         im = frame.rgba();
         jnifunc.imgProcess( 0, im.getNativeObjAddr() );
         return im;
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mOpenCvCameraView != null)
+            mOpenCvCameraView.disableView();
     }
 }
