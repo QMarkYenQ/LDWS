@@ -53,38 +53,9 @@ public class MainActivity extends AppCompatActivity implements CvCameraViewListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.cameraview);
-       mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
-        mOpenCvCameraView.setCvCameraViewListener(this);
-/*
-        Log.i(TAG, "called onCreate");
-        super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(R.layout.activity_main);
-        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.cameraview);
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
-*/
-    //    requestWindowFeature(Window.FEATURE_NO_TITLE);
-     //   getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-      //  setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-      //  setContentView(R.layout.activity_main);
 
-       // mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.cameraview);
-       // mOpenCvCameraView.setCvCameraViewListener(this);
-
-
-      //  mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.cameraview);
-       // mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
-        //mOpenCvCameraView.setCvCameraViewListener(this);
-
-       // getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-     //   setContentView(R.layout.activity_main);
-     //   mOpenCvCameraView = (CameraBridgeViewBase)
-         //       findViewById(R.id.cameraview);
-//Set the view as visible
-      //  mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
-//Register your activity as the callback object to handle //camera frames
-     //   mOpenCvCameraView.setCvCameraViewListener(this);
     }
     @Override
     public void onResume() {
