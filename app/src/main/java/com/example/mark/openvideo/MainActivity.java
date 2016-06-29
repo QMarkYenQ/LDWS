@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements CvCameraViewListe
         // opencvLoaderCallback will be notified when this is complete.
        OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_0_0, this, opencvLoaderCallback);
 
-
+        jnifunc.iniProcess(0);
 
     }
 

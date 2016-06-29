@@ -10,10 +10,18 @@ extern "C" {
 /*
  * Class:     com_example_mark_openvideo_myNDK
  * Method:    imgProcess
- * Signature: (JJ)V
+ * Signature: (JJ)I
  */
 JNIEXPORT jint JNICALL Java_com_example_mark_openvideo_myNDK_imgProcess
   (JNIEnv *, jobject, jlong, jlong);
+
+/*
+ * Class:     com_example_mark_openvideo_myNDK
+ * Method:    iniProcess
+ * Signature: (J)I
+ */
+JNIEXPORT jint JNICALL Java_com_example_mark_openvideo_myNDK_iniProcess
+  (JNIEnv *, jobject, jlong);
 
 #ifdef __cplusplus
 }

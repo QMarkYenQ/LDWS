@@ -10,4 +10,5 @@ public class myNDK
         System.loadLibrary("myJNI");
     }
     public native int imgProcess( long thiz, long inputImage );
+    public native int iniProcess( long thiz );
 }
